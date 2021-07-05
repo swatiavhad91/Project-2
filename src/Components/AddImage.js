@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Female_Card from '../Cards/Female_Card.png';
+
  
   class AddImage extends Component {
   
@@ -12,63 +12,62 @@ import Female_Card from '../Cards/Female_Card.png';
         };
       this.onRadioChange = this.onRadioChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
-      this.AddImage=this.AddImage.bind(this);
+      
     }
  
     onRadioChange = (e) => {
       this.setState({
-        gender: e.target.value
+        gender: e.target.value,
+        
       });
-    }
+         }
  
     onSubmit = (e) => {
       e.preventDefault();
       console.log("Selected gender is : ");
       console.log(this.state);
-        
-    
-    }
 
-    AddImage=(e)=>{
-       
-        this.setState(
-            <div className="container">
-            <img src={Female_Card} alt=""/>
-        </div>
-        );
-    }
+      
+      }
+
+     
   render() {
     return (
-    <div className="AddImage">
-      <form onSubmit={this.onSubmit}>
+      <div>
       
- 
-      <ul>
-          <li>
-              <input type="text" name="username" placeholder="username" />
-          </li>
-        <li>
+        <div className="AddImage">
+          
+      <form onSubmit={this.onSubmit}>
+          
+        <label><b>UserName</b></label>
+       <input type="text" name="username" placeholder="username" /><br></br><br></br>
+
+       <label><b>Gender</b></label>
         <label>
-        <input type="radio" value="Male" checked={this.state.gender === "Male"} onChange={this.onRadioChange} />
+        <input type="radio" id="Male" value="Male" checked={this.state.gender === "Male"}
+      
+      
+         onChange={this.onRadioChange}   />
         <span>Male</span>
         </label>
-        </li>
+        
  
-        <li>
         <label>
-        <input type="radio" value="Female" checked={this.state.gender === "Female"} onChange={this.onRadioChange} />
+        <input type="radio" value="Female" checked={this.state.gender === "Female"} 
+                
+         onChange={this.onRadioChange} />
         <span>Female</span>
-        </label>
-        </li>
+        </label><br></br><br></br>
+
  
-       </ul>
- 
-      {/* <button type="submit">Check selected gender on Console</button> */}
-      <button type="submit" >Check Gender</button>
-      <button type="submit" onClick={this.AddImage}> Add Cards</button>
-      
-      </form>
+       <button type="submit">submit</button> 
+      {/* <button type="submit" >Check Gender</button> */}    
+     
+       </form> 
     </div>
+   
+    </div>
+
     );
   }
 }
